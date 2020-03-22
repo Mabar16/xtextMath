@@ -11,3 +11,10 @@ The current status is as follows:
 - Parentheses are evaluated first in expressions
 - Hovering has been implemented
 - Function-style variables have **NOT** been implemented
+
+### Hovering:
+Example of hovering:
+![Hovering](Hover.png)
+
+The code for hovering can be found in:
+sdu.mdsd.mathinterpreter.ui/src/sdu/mdsd/ui
