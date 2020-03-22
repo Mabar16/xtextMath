@@ -1,0 +1,52 @@
+grammar sdu.mdsd.Mathinterpreter with org.eclipse.xtext.common.Terminals
+
+generate mathinterpreter "http://www.mdsd.sdu/Mathinterpreter"
+
+ExpModel:
+elements += MathExp*
+;
+
+MathExp:
+	Variable | Evaluation 
+;
+     
+Evaluation:
+	'Result' 'is' exp=Exp
+;
+
+Variable:
+'var' name=ID '=' exp=Exp;
+
+
+Exp: PlusOrMinus;
+
+PlusOrMinus returns Exp:
+	MultOrDiv ({Exp.left=current} operator=PMExpOp right=MultOrDiv)*
+;
+
+
+MultOrDiv returns Exp:
+	Primary (
+		{MultOrDiv.left=current} operator=MDExpOp right=Primary
+	)*
+;
+
+PMExpOp:
+	{Plus} '+' | {Minus} '-'	
+;
+
+MDExpOp:
+	 {Mult} '*' | {Div} '/'	
+;
+
+Primary:
+	Number | Parenthesis
+;
+
+Parenthesis:
+	'(' exp=Exp ')'
+;
+
+Number:
+	value=INT
+;
