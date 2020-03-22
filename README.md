@@ -14,7 +14,7 @@ The current status is as follows:
 
 ### Hovering:
 Example of hovering:
-![Hovering](Hover.png)
+![Hovering](Images/Hover.png)
 
 The code for hovering can be found in:
 sdu.mdsd.mathinterpreter.ui/src/sdu/mdsd/ui
